@@ -5,14 +5,35 @@ const Navbar = () => {
     const { user, setUser } = useUserContext();
 
     return (
-        <nav>
-            <NavLink to="/">Home</NavLink> |
-            {user && (
-                <>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
-                    <button onClick={() => setUser(false)}>Logout</button>
-                </>
-            )}
+        <nav className="container">
+            <ul>
+                <li>
+                    <strong>API REST Firebase</strong>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <NavLink to="/">Home</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/register">Register</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/login">Login</NavLink>
+                </li>
+                {user && (
+                    <>
+                        <li>
+                            <NavLink to="/dashboard">Dashboard</NavLink>
+                        </li>
+                        <li>
+                            <button onClick={() => setUser(false)}>
+                                Logout
+                            </button>
+                        </li>
+                    </>
+                )}
+            </ul>
         </nav>
     );
 };
