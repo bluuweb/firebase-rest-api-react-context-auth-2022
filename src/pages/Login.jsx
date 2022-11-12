@@ -17,9 +17,6 @@ const Login = () => {
                 email: email,
                 password: password,
             });
-
-            console.log(data);
-
             setUser(data);
             navigate("/dashboard");
         } catch (error) {
@@ -32,6 +29,7 @@ const Login = () => {
             } else {
                 console.log("Error", error.message);
             }
+            setUser(false);
         }
     };
 
