@@ -2,7 +2,11 @@ import { NavLink } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 
 const Navbar = () => {
-    const { user, setUser } = useUserContext();
+    const { user, setUser, destroyUser } = useUserContext();
+
+    const handleLogout = () => {
+        destroyUser();
+    };
 
     return (
         <nav className="container">
@@ -27,9 +31,7 @@ const Navbar = () => {
                             <NavLink to="/dashboard">Dashboard</NavLink>
                         </li>
                         <li>
-                            <button onClick={() => setUser(false)}>
-                                Logout
-                            </button>
+                            <button onClick={handleLogout}>Logout</button>
                         </li>
                     </>
                 )}

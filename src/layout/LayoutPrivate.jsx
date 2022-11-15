@@ -2,10 +2,10 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 
 const LayoutPrivate = () => {
-    const { user } = useUserContext();
-    console.log("LayoutPrivate", user);
+    const { user, loading } = useUserContext();
+    console.log("LayoutPrivate USER:", user); //null si hacemos el refresh
 
-    if (user === null) {
+    if (loading) {
         return <p>Loading user...</p>;
     }
 
